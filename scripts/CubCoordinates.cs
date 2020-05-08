@@ -1,5 +1,11 @@
 using UnityEngine;
 
+/**
+* Classe qui modelise les coordonnées d'une cellules
+* les coordonnées on une position x et y
+* la methode y permet d'obtenir la distance depuis la case 0:0
+* les autres methodes sont des methodes d'affichage 
+*/
 [System.Serializable]
 public struct CubCoordinates {
 
