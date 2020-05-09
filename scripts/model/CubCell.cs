@@ -6,4 +6,14 @@ using UnityEngine;
 */
 public class CubCell : MonoBehaviour{
   public CubCoordinates coordinates;
+
+  public Color color;
+
+  public int getX(){
+    return coordinates.X;
+  }
+
+  public int getY(){
+    return coordinates.Y;
+  }
 }
