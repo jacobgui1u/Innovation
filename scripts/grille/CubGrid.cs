@@ -1,5 +1,8 @@
+using System;
+
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 /**
 * Classe qui modelise une grille de cellules cubique
@@ -8,8 +11,8 @@ using UnityEngine.UI;
 * la grille possède un tableau de cellules et un canvas
 */
 public class CubGrid : MonoBehaviour {
-  public int width = 6;
-	public int height = 6;
+  private  int width = 20;
+	private int height = 20;
 
 
   public Text cellLabelPrefab;
@@ -80,8 +83,13 @@ public class CubGrid : MonoBehaviour {
   * on gère ici les inputs notamment si on clique sur une cellule
   */
   void Update () {
-		if (Input.GetMouseButton(0)) {
-			HandleInput();
+
+    if (Input.GetButtonDown("Fire1")){
+      //verification qu'on touche au bon composant
+      if(!EventSystem.current.IsPointerOverGameObject()){
+        HandleInput();
+
+      }
 		}
 	}
 
@@ -108,7 +116,10 @@ public class CubGrid : MonoBehaviour {
     int index = coordinates.X + coordinates.Z * width ;
   	CubCell cell = cells[index];
 
-		cell.color = touchedColor;
+    if(cell.color==touchedColor){
+      cell.color = defaultColor;
+    }else
+		  cell.color = touchedColor;
 		cubMesh.Cubisme(cells);
 	}
 
