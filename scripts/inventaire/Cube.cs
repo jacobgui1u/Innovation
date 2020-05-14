@@ -32,7 +32,7 @@ public class Cube : MonoBehaviour, InvPrefab{
   public void OnDrop(){
     RaycastHit hit = new RaycastHit();
     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-    print("llll");
+
     if(Physics.Raycast(ray,out hit,1000)){
       gameObject.SetActive(true);
       gameObject.transform.position=hit.point;
